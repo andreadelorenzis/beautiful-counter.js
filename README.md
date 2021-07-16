@@ -8,5 +8,6 @@ Project created with:
 - HTML and CSS
 - Vanilla Javascript
 
+## Demo
 Try a working demo <a href="https://www.andreadelorenzis.com/project_1_page/counter.html" target="_blank">here</a>
 
