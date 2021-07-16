@@ -1,7 +1,7 @@
 # BeautifulCounter.js
 A simple, original counter implemented to look like a score board.
 
-<img src="https://github.com/andreadelorenzis/beautiful-counter.js/blob/main/assets/img/screen_app.PNG?raw=true" alt="screen" width="600" />
+<img src="https://github.com/andreadelorenzis/beautiful-counter.js/blob/main/assets/img/screen_app.PNG?raw=true" alt="screen" width="450" />
 
 ## Technologies
 Project created with:
