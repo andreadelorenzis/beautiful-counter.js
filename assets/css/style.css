@@ -1,0 +1,341 @@
+
+/* Globals */
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fbefdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-style: none;
+  border-width: 0;
+  border-color: transparent;
+  border-image: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  max-width: 500px;
+}
+
+h1 {
+  color: #3e291d;
+  font-size: 35px;
+  font-family: 'Alfa Slab One', cursive;
+  font-weight: 400;
+  padding: 0;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+/* Score board */
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 190px;
+  line-height: 0;
+  margin-bottom: 30px;
+}
+
+.score-board * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.score-board__inner {
+  display: flex;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.score-board__digit {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.score-board__digit::before,
+.score-board__digit::after {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.score-board__digit::before {
+  content: attr(data-digit-before);
+  bottom: 0;
+  align-items: flex-start;
+}
+
+.score-board__digit::after {
+  content: attr(data-digit-after);
+  top: 0;
+  align-items: flex-end;
+}
+
+.score-board__card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 50%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: bottom;
+  -moz-transform-origin: bottom;
+  transform-origin: bottom;
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  transform: rotateX(0);
+ -webkit-transition: transform 0.5s ease-in-out;
+ -moz-transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+.score-board__card.flipped-down{
+  transform: rotateX(-180deg);
+}
+
+.score-board__card.flipped-up{
+  transform: rotateX(0);
+}
+
+.score-board__card-face {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.score-board__card-face--front {
+  align-items: flex-end;
+}
+
+.score-board__card-face--back {
+  align-items: flex-start;
+
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.score-board__digit,
+.score-board__digit::before,
+.score-board__digit::after,
+.score-board__card,
+.score-board__card-face {
+  border-radius: 4px;
+}
+
+.score-board__digit::before,
+.score-board__digit::after,
+.score-board__card-face--front,
+.score-board__card-face--back {
+  background: white;
+  color: black;
+}
+
+.score-board__digit::before,
+.score-board__card-face--back {
+  background: linear-gradient(0, #aaa, #ccc 50%, #fafafa);
+  color: #212121;
+
+  border-top: 1px solid black;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.score-board__digit::after,
+.score-board__card-face--front {
+  background: linear-gradient(0, #aaa, #bbb 50%, #f5f5f5);
+  color: #212121;
+
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.buttons__wrapper button {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  margin: 0 5px;
+  text-shadow: 0 -2px 0 #4d382c,
+               0 1px 1px #bb9c8a;
+  box-sizing: border-box;
+  font-size: 30px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  font-weight: bold;
+  color: #6d503f;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 17px;
+  display: inline-block;
+  width: 50px;
+  background: linear-gradient(to bottom, #d68555 0%, #bd825f 26%, #8d6852 100%);
+  border-radius: 5px;
+  border-top: 1px solid #bfa290;
+  border-bottom: 1px solid #bb9c8a;
+  top: 0;
+  position: relative;
+}
+
+.buttons__wrapper button:visited {
+  color: #6d503f;
+}
+
+.buttons__wrapper button:hover {
+  background: linear-gradient(to bottom, #dd9a72 0%, #c79679 26%, #a37960 100%);
+}
+
+.buttons__wrapper button:active {
+  top: 6px;
+  text-shadow: 0 -2px 0 #8d6852,
+               0 1px 1px #bb9c8a,
+               0 0 4px white;
+  color: #eae0db;
+}
+
+.buttons__wrapper button:active:before {
+  top: 0;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7),
+              0 3px 9px rgba(0, 0, 0, 0.2);
+}
+
+.buttons__wrapper button:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  top: 6px;
+  border-radius: 5px;
+  height: 50px;
+  background: linear-gradient(to top, #0d0806 0%, #412b1e 6px);
+  transition: all 0.078s ease-out;
+  box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.3),
+              0 5px 2.4px rgba(0, 0, 0, 0.5),
+              0 10.8px 9px rgba(0, 0, 0, 0.2);
+}
+
+.buttons__wrapper .buttons__reset {
+  width: 150px;
+}
+
+.buttons__wrapper button.clicked {
+  top: 6px;
+  text-shadow: 0 -2px 0 #8d6852,
+               0 1px 1px #bb9c8a,
+               0 0 4px white;
+  color: #eae0db;
+}
+
+.buttons__wrapper button.clicked:before {
+  top: 0;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7),
+              0 3px 9px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries */
+
+/* Medium and large */
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .container {
+    max-width: 600px;
+    max-height: 700px;
+  }
+
+  .score-board {
+    font-size: 250px;
+  }
+
+  .score-board__digit {
+    width: 280px;
+    height: 420px;
+  }
+
+  .buttons__wrapper button {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 40px;
+    padding: 0 15px;
+  }
+
+  .buttons__wrapper .buttons__reset {
+    width: 200px;
+    margin: 0 40px;
+  }
+
+  .buttons__wrapper button:active {
+    top: 8px;
+  }
+
+  .buttons__wrapper button:before {
+    top: 8px;
+    height: 80px;
+  }
+
+  .buttons__wrapper button.clicked {
+    top: 8px;
+  }
+
+  .buttons__wrapper button.clicked:before {
+    top: 0;
+  }
+}

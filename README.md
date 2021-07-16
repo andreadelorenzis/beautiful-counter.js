@@ -1,0 +1,1 @@
+# beautiful-counter.js
