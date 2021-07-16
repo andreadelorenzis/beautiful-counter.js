@@ -32,7 +32,7 @@ function increment() {
       card.classList.add('flipped-down');
     }, 20);
 
-    /* fhange the font of the digits depending on the size of the number */
+    /* change the font of the digits depending on the size of the number */
     if (digit.dataset.digitBefore >= -10 &&
       digit.dataset.digitBefore < 10)
       setTimeout(() => {
@@ -62,6 +62,7 @@ function increment() {
 
     /* when the transition ends */
     card.addEventListener('transitionend', function () {
+
       /* increment previous number */
       digit.dataset.digitBefore++;
       card.childNodes[1].textContent = digit.dataset.digitBefore;
@@ -81,6 +82,7 @@ function increment() {
       decrementBtn.disabled = false;
       resetBtn.disabled = false;
       incrementBtn.classList.remove('clicked');
+
     }, { once: true });
   }
 }
@@ -144,6 +146,7 @@ function decrement() {
       decrementBtn.disabled = false;
       resetBtn.disabled = false;
       decrementBtn.classList.remove('clicked');
+
     }, { once: true });
   }
 }
@@ -193,5 +196,6 @@ function reset() {
     decrementBtn.disabled = false;
     resetBtn.disabled = false;
     resetBtn.classList.remove('clicked');
+
   }, { once: true });
 }
