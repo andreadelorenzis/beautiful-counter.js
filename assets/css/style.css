@@ -197,7 +197,7 @@ h1 {
 }
 
 /* Buttons */
-.buttons {
+.buttons__container {
   display: flex;
   justify-content: center;
   width: 100%;

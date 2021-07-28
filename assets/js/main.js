@@ -1,3 +1,28 @@
+/* create buttons */
+const buttons = `
+  <div class="buttons__wrapper">
+    <button class="buttons__increment">+</button>
+  </div>
+  <div class="buttons__wrapper">
+    <button class="buttons__reset">Reset</button>
+  </div>
+  <div class="buttons__wrapper">
+    <button class="buttons__decrement">-</button>
+  </div>`;
+let div = document.createElement('div');
+div.innerHTML = buttons;
+div.classList.add('buttons__container');
+document.querySelector('.buttons').appendChild(div);
+
+/* create counter */
+const counter = `
+    <div class="score-board__card-face score-board__card-face--front">0</div>
+    <div class="score-board__card-face score-board__card-face--back">1</div>`;
+div = document.createElement('div');
+div.innerHTML = counter;
+div.classList.add('score-board__card');
+document.querySelector('.score-board__digit').appendChild(div);
+
 
 /* global variables */
 const scoreBoard = document.querySelector('.score-board');
